@@ -9,7 +9,7 @@ branches:
 
 env:
   global:
-    - secure:
+    - secure: 82VJOTTNqBbzXH/IK9tvNwk8QQMijiaEt05+yDZL5e70GsbSxYj6gtspNQmrPUpMKZgKYDHH0nCm+bFqQe/QwH7PWEz8xJM1Jqo5Iqu9xNXcffr5fLFc+YPVONKzZlub+oxabfoB86M9rx0Q1QThz5BrIJDTimEHMjRMrz1crOghkHB2fk6vk0hhaxwPZdkyZXkC0dwx3ze7OG2/wKEOt/qVaQtIOhdXT4Q0wJ3jlLR/SrPwqAxqjuCPMN2q07iUsRCAJkcAPflmwikYXxxTHUd5pVo+c6oBZTqYiu3YimwmMsrrMWpsu9VsKmyTJKDXzYchasJldEQDaNUQtABTrg==
 
 build:
   ci:
