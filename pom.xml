@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.shipfmrsamplejava</groupId>
-	<artifactId>HelloWorld</artifactId>
+	<artifactId>helloworld</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>HelloWorld Maven Webapp</name>
@@ -10,7 +10,9 @@
 
 	<properties>
 		<spring.version>4.0.1.RELEASE</spring.version>
+		<docker.image.prefix>ttrahan</docker.image.prefix>
 	</properties>
+	
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -36,10 +38,8 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-
 	</dependencies>
-
-
+		
 	<build>
 		<finalName>HelloWorld</finalName>
 		<plugins>
@@ -50,6 +50,22 @@
 				<configuration>
 					<source>1.8</source>
 					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<version>0.2.3</version>
+				<configuration>
+					<imageName>${docker.image.prefix}/${project.artifactId}</imageName>
+					<dockerDirectory>src/main/docker</dockerDirectory>
+					<resources>
+						<resource>
+							<targetPath>/</targetPath>
+							<directory>${project.build.directory}</directory>
+							<include>${project.build.finalName}.war</include>
+						</resource>
+					</resources>
 				</configuration>
 			</plugin>
 		</plugins>
