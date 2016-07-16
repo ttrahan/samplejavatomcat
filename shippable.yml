@@ -1,0 +1,17 @@
+language: java
+
+jdk:
+  - oraclejdk8
+
+branches:
+  only:
+    - master
+
+env:
+  global:
+    - secure:
+
+build:
+  ci:
+    - sed -i "s/{PASSWORD}/$PASSWORD/" .m2/settings.xml
+    - mvn -q -B -s .m2/settings.xml -U clean deploy
