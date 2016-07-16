@@ -58,7 +58,8 @@
 				<version>0.4.11</version>
 				<configuration>
 					<imageName>${docker.image.prefix}/${project.artifactId}</imageName>
-					<dockerDirectory>src/main/docker</dockerDirectory>
+					<baseImage>frolvlad/alpine-oraclejdk8:slim</baseImage>
+                    <entryPoint>["java", "-war", "/${project.build.finalName}.war"]</entryPoint>
 					<imageTags>
            				<imageTag>${project.version}</imageTag>
            				<imageTag>latest</imageTag>
