@@ -9,12 +9,12 @@ branches:
 
 env:
   global:
-    - secure: 82VJOTTNqBbzXH/IK9tvNwk8QQMijiaEt05+yDZL5e70GsbSxYj6gtspNQmrPUpMKZgKYDHH0nCm+bFqQe/QwH7PWEz8xJM1Jqo5Iqu9xNXcffr5fLFc+YPVONKzZlub+oxabfoB86M9rx0Q1QThz5BrIJDTimEHMjRMrz1crOghkHB2fk6vk0hhaxwPZdkyZXkC0dwx3ze7OG2/wKEOt/qVaQtIOhdXT4Q0wJ3jlLR/SrPwqAxqjuCPMN2q07iUsRCAJkcAPflmwikYXxxTHUd5pVo+c6oBZTqYiu3YimwmMsrrMWpsu9VsKmyTJKDXzYchasJldEQDaNUQtABTrg==
+      - secure: s3wNF5GWBqUt6d7wHaWz4N2YxYQSSwomVPm5dsSYQ1euKrmNxxpT15vdJ+JjLIeAe6SGpGkfBTML5SRe2q46VrOJWkg11A3Q3HQiMs2EtgywFvusAF0F3fb3ZxKaqljukmDRf1ixkoshBiSU0rRx9cQ2h90RYyLXpGwitATfW0lt+MySuQTwsV/RqtY8Pw5ss+qjwNguCvkWE8lJzGWV1ZI/fJhceQxlFVWd1HxG3PMYTd0VV7xKkVr0fiUViunQHO/EhMdPQWlVcdQTL/PHKqIvrtPMXGr3G39AHwOmCXAd3nXx9iaiPaYIZNVF+kFMWoVa6xSsrZLvPG+oUmj+NQ==
 
 build:
   ci:
     - sed -i "s/{PASSWORD}/$PASSWORD/" .m2/settings.xml
-    - mvn -q -B -s .m2/settings.xml -U clean package
+    - mvn -q -B -s .m2/settings.xml -U clean deploy
     - docker build -t ttrahan/HelloWorld.$BRANCH.$BUILD_NUMBER .
     - docker push ttrahan/HelloWorld.$BRANCH.$BUILD_NUMBER
 
