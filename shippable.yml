@@ -14,10 +14,10 @@ env:
 build:
   ci:
     - sed -i "s/{PASSWORD}/$PASSWORD/" .m2/settings.xml
-    - mvn -q -B -s .m2/settings.xml -U clean package docker:build
-    - docker tag -f ttrahan/0.0.1-SNAPSHOT.$BRANCH.$BUILD_NUMBER
-    - docker push ttrahan/0.0.1-SNAPSHOT.$BRANCH.$BUILD_NUMBER
-    
+    - mvn -q -B -s .m2/settings.xml -U clean deploy
+    - docker build -t ttrahan/HelloWorld.$BRANCH.$BUILD_NUMBER .
+    - docker push ttrahan/HelloWorld.$BRANCH.$BUILD_NUMBER
+
 integrations:
   hub:
     - integrationName: ttrahan-dh

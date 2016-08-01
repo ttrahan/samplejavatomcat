@@ -12,7 +12,7 @@
 		<spring.version>4.0.1.RELEASE</spring.version>
 		<docker.image.prefix>ttrahan</docker.image.prefix>
 	</properties>
-	
+
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -39,7 +39,7 @@
 			<version>${spring.version}</version>
 		</dependency>
 	</dependencies>
-		
+
 	<build>
 		<finalName>HelloWorld</finalName>
 		<plugins>
@@ -52,7 +52,7 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
-			<plugin>
+			<!-- <plugin>
 				<groupId>com.spotify</groupId>
 				<artifactId>docker-maven-plugin</artifactId>
 				<version>0.4.11</version>
@@ -71,7 +71,7 @@
 						</resource>
 					</resources>
 				</configuration>
-			</plugin>
+			</plugin> -->
 		</plugins>
 	</build>
 </project>
