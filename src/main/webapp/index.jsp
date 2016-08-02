@@ -13,7 +13,11 @@
 		<h3>
 			<label for="name">Enter your name:</label>
 			<input name="name" id="nameInput" type="text">
-      <a href='' onclick="this.href='name?document.getElementById('nameInput').value">submit</a>
+		  <p></p>
+      <%-- <a href='' onclick="this.href='hello?name='+document.getElementById('nameInput').value">submit</a> --%>
+			<form action="">
+				<input type="button" style="padding: 30px 30px 30px 30px;" value="submit" onclick="window.location.href='hello?name='+document.getElementById('nameInput').value"/>
+      </form>
 		</h3>
 	</center>
 </body>
