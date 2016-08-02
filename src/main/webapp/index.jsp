@@ -11,8 +11,11 @@
 	<center>
 		<h2>Hello World</h2>
 		<h3>
-			<a href="hello?name=Tom">Click Here</a>
+			<label for="name">Enter your name:</label>
+			<input name="name" id="nameInput" type="text">
+      <a href='' onclick="this.href='name?document.getElementById('nameInput').value">submit</a>
 		</h3>
 	</center>
 </body>
+
 </html>
