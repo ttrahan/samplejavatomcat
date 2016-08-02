@@ -106,7 +106,7 @@
           <formats>
             <format>xml</format>
           </formats>
-					<!-- <outputDirectory>$SHIPPABLE_BUILD_DIR/shippable/testresults</outputDirectory> -->
+					<outputDirectory>shippable/testresults</outputDirectory>
         </configuration>
       </plugin>
 		</plugins>
