@@ -18,6 +18,7 @@ build:
     - SHIPPABLE_BUILD_DIR=/relocate/javatomcat && cd $SHIPPABLE_BUILD_DIR
     - mkdir -p shippable/testresults && mkdir -p shippable/codecoverage
     - mvn -q -B -s .m2/settings.xml -U clean cobertura:cobertura deploy
+    - ls shippable/testresults && ls shippable/codecoverage
     - docker build -t ttrahan/javahelloworld:$BRANCH.$BUILD_NUMBER .
     - docker push ttrahan/javahelloworld:$BRANCH.$BUILD_NUMBER
 
