@@ -15,6 +15,8 @@ build:
   ci:
     - mkdir -p shippable/testresults
     - sed -i "s/{PASSWORD}/$PASSWORD/" .m2/settings.xml
+    - mkdir -pv /relocate/javatomcat && cp -r $SHIPPABLE_BUILD_DIR/.  /relocate/javatomcat
+    - SHIPPABLE_BUILD_DIR=/relocate/javatomcat && cd $SHIPPABLE_BUILD_DIR
     - mvn -q -B -s .m2/settings.xml -U clean cobertura:cobertura deploy
     - docker build -t ttrahan/javahelloworld:$BRANCH.$BUILD_NUMBER .
     - docker push ttrahan/javahelloworld:$BRANCH.$BUILD_NUMBER
