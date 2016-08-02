@@ -15,6 +15,8 @@ build:
   ci:
     - sed -i "s/{PASSWORD}/$PASSWORD/" .m2/settings.xml
     - mvn -q -B -s .m2/settings.xml -U clean deploy
+    - mkdir -p shippable/testresults
+    - cp target/site/cobertura/coverage.xml shippable/testresults/coverage.xml
     - docker build -t ttrahan/javahelloworld:$BRANCH.$BUILD_NUMBER .
     - docker push ttrahan/javahelloworld:$BRANCH.$BUILD_NUMBER
 
