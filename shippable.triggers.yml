@@ -3,3 +3,5 @@ triggers:
     type: trigger
     version:
       message: 'testing trigger in test'
+    flags:
+      - hello

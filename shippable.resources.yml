@@ -13,6 +13,8 @@ resources:
     pointer:
       sourceName : "demo-shippable-ecs-test"
       region: "us-east-1"
+    flags:
+      - hello
 
 ################################
 
@@ -35,6 +37,8 @@ resources:
       isPull: false
     seed:
       versionName: master.1
+    flags:
+      - hello
 
 # Docker Image Options for VISUALIZER
   - name: hello-img-opts-test
@@ -45,6 +49,9 @@ resources:
       portMappings:
         - 8080:8080
       publishAllPorts : true
+    flags:
+      - hello
+
 
 # env vars for VISUALIZER
   - name: hello-params
@@ -52,3 +59,5 @@ resources:
     version:
       params:
         ENVIRONMENT: "test"
+    flags:
+      - hello

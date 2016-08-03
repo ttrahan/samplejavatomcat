@@ -13,6 +13,8 @@ jobs:
       - IN: hello-img
       - IN: hello-img-opts-test
       - TASK: managed
+    flags:
+      - hello
 
 # deploy to TEST
 
@@ -27,6 +29,8 @@ jobs:
       - IN: env-test-ecs
 #       - IN: env-test-triton
       - TASK: managed
+    flags:
+      - hello
 
 # ################################
 
