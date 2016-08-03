@@ -1,0 +1,41 @@
+jobs:
+
+# jobs for the box demo pipelines from CI thru TEST environment
+
+################################
+
+# add pipeline workflow for TEST
+
+# manifest gen
+  - name: hello-man
+    type: manifest
+    steps:
+      - IN: hello-img
+      - IN: hello-img-opts-test
+      - TASK: managed
+
+# deploy to TEST
+
+# TEST deployment to Amazon ECS
+  - name: hello-test-ecs
+    type: deploy
+    steps:
+      - IN: hello-man
+      - IN: hello-params
+        applyTo: hello-img
+      - IN: trigger-test-deploy
+      - IN: env-test-ecs
+#       - IN: env-test-triton
+      - TASK: managed
+
+# ################################
+
+# # increment release version
+#   - name: hello-rel
+#     type: release
+#     steps:
+#       - IN: hello-ver
+#       - IN: hello-test-ecs
+#         trigger: true
+#       - TASK: managed
+#         bump: patch

@@ -1,0 +1,54 @@
+resources:
+
+# pipeline resources from CI thru TEST environment
+
+################################
+
+# add TEST environment
+
+# add TEST env - AWS cluster
+  - name: env-test-ecs
+    type: cluster
+    integration: ttrahan-aws
+    pointer:
+      sourceName : "demo-shippable-ecs-test"
+      region: "us-east-1"
+
+################################
+
+# # set application version seed
+#   - name: hello-ver
+#     type: version
+#     seed:
+#       versionName: "1.0.0"
+
+################################
+
+# add visualizer resources to pipeline for CI
+
+# Docker Image
+  - name: hello-img
+    type: image
+    integration: ttrahan-dh
+    pointer:
+      sourceName: ttrahan/javahelloworld
+      isPull: false
+    seed:
+      versionName: master.1
+
+# Docker Image Options for VISUALIZER
+  - name: hello-img-opts-test
+    type: dockerOptions
+    version:
+      memory: 128
+      cpuShares: 256
+      portMappings:
+        - 8080:8080
+      publishAllPorts : true
+
+# env vars for VISUALIZER
+  - name: hello-params
+    type: params
+    version:
+      params:
+        ENVIRONMENT: "test"
