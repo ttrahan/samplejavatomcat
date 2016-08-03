@@ -9,18 +9,18 @@ branches:
 
 env:
   global:
-    - secure: H1YNlm3zIEGPHjHJJd99v/6Jsk7UFpgY750+8fUg/384LPUi7W/7aEvWTetZLQUMiXT1QsFTP0+sVxoJaDwOvKtJA191KNLsiQwj69Y5yuxncEwsWsIokwde0DfEA9/wESCFc5inUDps7NkezbgjKpKCHE8RroaIrY9IkHGN18S94Hhbd4WuBKFh6sCXXOHHzK/f/c/9Qwya6YdIyUEXFhZVBUcqGpZuAEyBBffugEhXUwxexCvQ6hNcm0rgqEkM7JqvFa8S9TcyUxGAluJ1LNdBMpoVIlsejTqlPPzRcw+NiUdcuFQ9QHqrkQubzUHP/vphqVrSVXzhbfm1khONnw==
+    - secure: QxYtpWedaY1d/YE3/0TTpWglg3MusJkhKPf9GARLnnwj/iRp708bBDTI5lGe3kQ6LnaZgtRfnaYPzpcyDzQvQNFVwlL+jimKXV6L3zH5d/w6006cyVvdlenp8It/JxH+POSvg4T0J6k4m7Q+mV3opJQ/3rdZHlK1JPWmE83HpHqOwpXii2qYbO2di187DybbrOBezF3d9YPa0i5Oj6YoOjoFF+R9BzROE+dpCirFJpzhWHOzvap+nzEmjri3TNfkMkTrmNWTT1sZfpgkP4/eFW0RFWHunBtYWJo5jDoHIANxVZX6UQ3ZS939aOKNyiz5umvORoA3Fi3P/YwyvfyZFg==
 
 build:
   ci:
     - mkdir -p shippable/testresults && mkdir -p shippable/codecoverage
-    - REPORTS_DIR=$(pwd)
+    # - REPORTS_DIR=$(pwd)
     - sed -i "s/{PASSWORD}/$PASSWORD/" .m2/settings.xml
-    - mkdir -pv /relocate/javatomcat && cp -r $SHIPPABLE_BUILD_DIR/.  /relocate/javatomcat
-    - SHIPPABLE_BUILD_DIR=/relocate/javatomcat && cd $SHIPPABLE_BUILD_DIR
+    # - mkdir -pv /relocate/javatomcat && cp -r $SHIPPABLE_BUILD_DIR/.  /relocate/javatomcat
+    # - SHIPPABLE_BUILD_DIR=/relocate/javatomcat && cd $SHIPPABLE_BUILD_DIR
     - mvn -q -B -s .m2/settings.xml -U clean cobertura:cobertura deploy
-    - cp shippable/testresults/* $REPORTS_DIR/shippable/testresults
-    - cp shippable/codecoverage/* $REPORTS_DIR/shippable/codecoverage
+    # - cp shippable/testresults/* $REPORTS_DIR/shippable/testresults
+    # - cp shippable/codecoverage/* $REPORTS_DIR/shippable/codecoverage
     - docker build -t ttrahan/javahelloworld:$BRANCH.$BUILD_NUMBER .
     - docker push ttrahan/javahelloworld:$BRANCH.$BUILD_NUMBER
 
