@@ -26,8 +26,8 @@
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
-			<!-- <scope>test</scope> -->
 		</dependency>
+
 		<!-- Spring dependencies -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -55,23 +55,63 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-web</artifactId>
 				<version>1.4.0.RELEASE</version>
+        <exclusions>
+					<exclusion>
+						 <groupId>logback</groupId>
+						 <artifactId>logback-classic</artifactId>
+					</exclusion>
+				</exclusions>
     </dependency>
     <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-test</artifactId>
 				<version>1.4.0.RELEASE</version>
     </dependency>
+
+		<!-- <dependency>
+		  <groupId>commons-logging</groupId>
+		  <artifactId>commons-logging</artifactId>
+		  <version>1.1.1</version>
+		  <scope>provided</scope>
+		</dependency>
+
+		<dependency>
+		  <groupId>org.slf4j</groupId>
+		  <artifactId>jcl-over-slf4j</artifactId>
+		  <version>1.7.21</version>
+		</dependency> -->
+
 		<dependency>
 		    <groupId>org.mockito</groupId>
 		    <artifactId>mockito-all</artifactId>
 		    <version>1.10.19</version>
 		    <scope>test</scope>
+				<exclusions>
+		       <exclusion>
+		          <groupId>org.slf4j</groupId>
+		          <artifactId>slf4j-api</artifactId>
+		       </exclusion>
+		       <exclusion>
+		          <groupId>log4j</groupId>
+		          <artifactId>log4j</artifactId>
+		      </exclusion>
+		    </exclusions>
 		</dependency>
-		<dependency>
+		<!-- <dependency>
 		    <groupId>com.jayway.jsonpath</groupId>
 		    <artifactId>json-path</artifactId>
 		    <version>0.9.1</version>
-		</dependency>
+				<exclusions>
+		       <exclusion>
+		          <groupId>org.slf4j</groupId>
+		          <artifactId>slf4j-log4j12</artifactId>
+		       </exclusion>
+		       <exclusion>
+		          <groupId>log4j</groupId>
+		          <artifactId>log4j</artifactId>
+		      </exclusion>
+		    </exclusions>
+		</dependency> -->
 	</dependencies>
 
 	<build>
@@ -92,7 +132,7 @@
 		    <version>2.19.1</version>
 				<configuration>
 			    <redirectTestOutputToFile>true</redirectTestOutputToFile>
-			    <reportsDirectory>${env.REPORTS_DIR}/shippable/testresults</reportsDirectory>
+			    <reportsDirectory>shippable/testresults</reportsDirectory>
 			  </configuration>
 		    <dependencies>
 		      <dependency>
@@ -110,7 +150,13 @@
           <formats>
             <format>xml</format>
           </formats>
-					<outputDirectory>/root/src/139.59.1.94:7990/fmr_sandbox/shipfmrsamplejava/shippable/codecoverage</outputDirectory>
+					<outputDirectory>shippable/codecoverage</outputDirectory>
+					<exclusions>
+						<exclusion>
+							 <groupId>logback</groupId>
+							 <artifactId>logback-classic</artifactId>
+						</exclusion>
+					</exclusions>
         </configuration>
       </plugin>
 		</plugins>
