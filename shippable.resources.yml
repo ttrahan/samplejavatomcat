@@ -6,15 +6,15 @@ resources:
 
 # add TEST environment
 
-# add TEST env - AWS cluster
-  - name: env-test-ecs
-    type: cluster
-    integration: ttrahan-aws
-    pointer:
-      sourceName : "demo-shippable-ecs-test"
-      region: "us-east-1"
-    flags:
-      - hello
+# # add TEST env - AWS cluster
+#   - name: env-test-ecs
+#     type: cluster
+#     integration: ttrahan-aws
+#     pointer:
+#       sourceName : "demo-shippable-ecs-test"
+#       region: "us-east-1"
+#     flags:
+#       - hello
 
 ################################
 
