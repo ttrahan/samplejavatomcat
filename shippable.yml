@@ -24,14 +24,14 @@ integrations:
     - integrationName: ttrahan-dh
       type: docker
 
-  # notifications:
-  #   - integrationName: ttrahan-trigger-javahello
-  #     type: webhook
-  #     payload:
-  #       - versionName=$BRANCH.$BUILD_NUMBER
-  #     branches:
-  #       only:
-  #         - master
-  #     on_success: always
-  #     on_failure: never
-  #     on_start: never
+  notifications:
+    - integrationName: ttrahan-trigger-javahello
+      type: webhook
+      payload:
+        - versionName=$BRANCH.$BUILD_NUMBER
+      branches:
+        only:
+          - master
+      on_success: always
+      on_failure: never
+      on_start: never
