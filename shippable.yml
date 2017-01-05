@@ -9,7 +9,7 @@ branches:
 
 env:
   global:
-    - secure: QxYtpWedaY1d/YE3/0TTpWglg3MusJkhKPf9GARLnnwj/iRp708bBDTI5lGe3kQ6LnaZgtRfnaYPzpcyDzQvQNFVwlL+jimKXV6L3zH5d/w6006cyVvdlenp8It/JxH+POSvg4T0J6k4m7Q+mV3opJQ/3rdZHlK1JPWmE83HpHqOwpXii2qYbO2di187DybbrOBezF3d9YPa0i5Oj6YoOjoFF+R9BzROE+dpCirFJpzhWHOzvap+nzEmjri3TNfkMkTrmNWTT1sZfpgkP4/eFW0RFWHunBtYWJo5jDoHIANxVZX6UQ3ZS939aOKNyiz5umvORoA3Fi3P/YwyvfyZFg==
+    - secure: gf19JiqqeQJiKWK+wsgcGrIwKe90R+M5vvF4Gr7xr4ngRRPMnr306yg0681okZCjLxh8+KVxTeRsdQFOR5JJ88r5w5q92oIxAd4VjPjKks5hhYrXUYEC3Aiat/+qRFJc4TtCDfJGD7Wnao2Z5hBLKtbh1kqSYXOEwsKyUzCWY0PpY9SVdg8gxgMFkR41ZeBPpy2rkQWsDPpWk+AhkArdGPO8T6QnyUaMlPUnRhSd/14bs6hQsGcZEVzg8yS7+Wx+CtBUSXUyn5KH5Sg52jHXUc/QoPoQnMdd2qtdVPWBYJ0cLVEfw1wsrBF5RRf0C4EogpkxKfHqfbkgOxCYBPrTrA==
 
 build:
   ci:
