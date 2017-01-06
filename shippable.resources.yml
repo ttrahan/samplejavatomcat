@@ -44,8 +44,8 @@ resources:
   - name: hello-img-opts-test
     type: dockerOptions
     version:
-      memory: 128
-      cpuShares: 256
+      memory: 256
+      cpuShares: 512
       portMappings:
         - 8080:8080
       publishAllPorts : true
